@@ -1,0 +1,59 @@
+<h1 class="m-2">Profesores</h1>
+<div class="content">
+    <mat-card class="m-2">
+        <mat-card-title>
+            <button mat-raised-button color="primary" (click)="newTeacher()" class="m-2">
+                <mat-icon mat-list-icon>add</mat-icon>
+                Agregar Profesor
+            </button>
+        </mat-card-title>
+        <mat-divider>
+
+        </mat-divider>
+        <mat-card-content class="mt-2">
+            <div class="mat-elevation-z8" style="overflow-x: auto;">
+                <table mat-table [dataSource]="dataSource">
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="username">
+                        <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
+                        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="idProfile">
+                        <th mat-header-cell *matHeaderCellDef> Perfil </th>
+                        <td mat-cell *matCellDef="let element"> {{element.idProfile}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="acciones">
+                        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                        <td mat-cell *matCellDef="let element"> 
+                            <button mat-icon-button color="primary" (click)="updateTeacher(element)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

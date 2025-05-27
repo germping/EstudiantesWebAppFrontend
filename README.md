@@ -1,27 +1,54 @@
 # EstudiantesWebAppFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+Este proyecto es la interfaz frontend de la aplicación **Estudiantes Web App**, desarrollada con Angular y Angular Material. Su objetivo es gestionar estudiantes, profesores y materias en un entorno educativo.
 
-## Development server
+## Conceptos Aplicados
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 1. **Angular**
+Framework para construir aplicaciones web SPA (Single Page Application) usando TypeScript. Angular proporciona:
+- **Componentes**: Unidades reutilizables de UI (por ejemplo, `ListTeacherComponent`, `ModalTeacherComponent`).
+- **Servicios**: Lógica de negocio y acceso a datos (por ejemplo, `TeacherService`, `SharedService`).
+- **Módulos**: Organización y agrupación de componentes y servicios.
+- **Ruteo**: Navegación entre vistas usando el Router de Angular.
 
-## Code scaffolding
+### 2. **Angular Material**
+Librería de componentes UI basada en Material Design. Proporciona:
+- **MatTable**: Tablas dinámicas para mostrar datos.
+- **MatDialog**: Ventanas modales para formularios y confirmaciones.
+- **MatPaginator**: Paginación de tablas.
+- **MatFormField, MatInput, MatButton, MatIcon**: Elementos de formularios y botones estilizados.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 3. **Reactive Forms**
+Angular Reactive Forms permite crear formularios robustos y validables usando `FormGroup` y `FormControl`. Ejemplo: el formulario de login y los formularios de creación/edición de profesores y materias.
 
-## Build
+### 4. **Consumo de APIs**
+El frontend se comunica con el backend mediante servicios Angular (`HttpClient`) para realizar operaciones CRUD sobre estudiantes, profesores y materias.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 5. **Gestión de Estado y Comunicación**
+Se utilizan servicios compartidos (`SharedService`) para manejar el estado de la sesión y compartir información entre componentes.
 
-## Running unit tests
+### 6. **Autenticación**
+El módulo de login utiliza formularios reactivos y servicios para autenticar usuarios y guardar la sesión.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Estructura de Carpetas
 
-## Running end-to-end tests
+- `/src/app/teachers`: Gestión de profesores (listar, crear, editar).
+- `/src/app/class-subjects`: Gestión de materias.
+- `/src/app/user`: Módulo de autenticación.
+- `/src/app/shared`: Componentes y servicios compartidos.
+- `/src/app/material`: Módulo para importar y centralizar Angular Material.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Librerías Principales
 
-## Further help
+- **@angular/core, @angular/common, @angular/forms**: Núcleo de Angular.
+- **@angular/material**: Componentes Material Design.
+- **rxjs**: Programación reactiva para manejo de eventos y datos asíncronos.
+- **@angular/router**: Navegación entre vistas.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Ejecución
+
+Instala dependencias y ejecuta el proyecto:
+
+```sh
+npm install
+ng serve
