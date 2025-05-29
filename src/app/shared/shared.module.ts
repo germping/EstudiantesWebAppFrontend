@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardStudentsComponent } from './dashboard-students/dashboard-students.component';
 import { MaterialModule } from '../material/material.module';
-//import { AppRoutingModule } from '../app-routing.module';
 import { LayoutRoutingModule } from './layout-routing.module';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { LayoutRoutingModule } from './layout-routing.module';
   imports: [
     CommonModule,
     MaterialModule,
-    //AppRoutingModule,
     LayoutRoutingModule
   ],
   exports: [

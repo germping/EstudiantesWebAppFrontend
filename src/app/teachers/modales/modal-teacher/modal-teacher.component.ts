@@ -5,8 +5,6 @@ import { SharedService } from '../../../shared/shared.service';
 import { Teacher } from '../../interfaces/teacher';
 import { TeacherService } from '../../services/teacher.service';
 
-
-
 @Component({
   selector: 'app-modal-teacher',
   templateUrl: './modal-teacher.component.html',
@@ -43,9 +41,8 @@ export class ModalTeacherComponent implements OnInit {
   createUpdateTeacher() {
     const User: Teacher = {
       id: this.datosTeacher != null ? this.datosTeacher.id : 0,
-      username: this.formTeacher.value.title,
-      email: this.formTeacher.value.credits,
-      password: '',
+      username: this.formTeacher.value.username,
+      email: this.formTeacher.value.email,
       idProfile: 1
     };
     //Create

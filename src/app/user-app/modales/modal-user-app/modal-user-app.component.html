@@ -1,12 +1,11 @@
 <h2 mat-dialog-title>{{title}}</h2>
 <mat-dialog-content>
-    <form [formGroup]="formTeacher">
+    <form [formGroup]="formUserApp">
         <div class="row mt-2">
             <div class="col-12">
                 <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Nombre de Usuario</mat-label>
+                    <mat-label>Username</mat-label>
                     <input matInput formControlName="username" autocomplete="off" required>
-                    <mat-icon matSuffix>title</mat-icon>
                 </mat-form-field>
             </div>
         </div>
@@ -14,8 +13,16 @@
             <div class="col-12">
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput formControlName="Email" autocomplete="off" required>
-                    <mat-icon matSuffix>title</mat-icon>
+                    <input matInput formControlName="email" autocomplete="off" required>
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Perfil</mat-label>
+                    <input matInput formControlName="idProfile" autocomplete="off" required>
                 </mat-form-field>
             </div>
         </div>
@@ -23,6 +30,6 @@
 </mat-dialog-content>
 <mat-dialog-actions>    
     <button mat-raised-button mat-dialog-close color="warn" >Volver</button>
-    <button mat-raised-button color="primary" [disabled]="formTeacher.invalid" 
-    (click)="createUpdateTeacher()">{{nameButton}}</button>
+    <button mat-raised-button color="primary" [disabled]="formUserApp.invalid" 
+    (click)="createUpdateUserApp()">{{nameButton}}</button>
 </mat-dialog-actions>
