@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content>
+    <form [formGroup]="formrelation">
+        <div class="row mt-2">
+            <div class="col-12">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Seleccione un usuario</mat-label>
+                    <mat-select matInput formControlName="userId">
+                        <mat-option *ngFor="let user of dataUsers" [value]="user.id" required>
+                            {{ user.username }} - {{ user.idProfile === 2 ? 'Estudiante' : user.idProfile === 1 ? 'Profesor' : '' }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Seleccione una materia</mat-label>
+                    <mat-select matInput formControlName="classSubjectId">
+                        <mat-option *ngFor="let subjectClass of dataSubjects" [value]="subjectClass.id" required>
+                            {{ subjectClass.title }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <button mat-raised-button color="primary" [disabled]="formrelation.invalid"
+        (click)="createUpdateRelation()">{{nameButton}}</button>
+</mat-dialog-actions>

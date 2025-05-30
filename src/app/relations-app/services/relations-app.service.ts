@@ -1,25 +1,25 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { ApiResponse } from '../../interfaces/api-response';
-import { Teacher } from '../interfaces/teacher';
+import { Relations } from '../interfaces/relations';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TeacherService {
+export class RelationsAppService {
 
-  baseUrl: string = environment.apiUrl + 'Teacher/';
+  baseUrl: string = environment.apiUrl + 'Relation/';
     constructor(private http: HttpClient) { }
   
-    list(): Observable<ApiResponse>{
+    listStudents(): Observable<ApiResponse>{
       return this.http.get<ApiResponse>(`${this.baseUrl}`);
     }
-    create(request: Teacher):Observable<ApiResponse>{
+    create(request: Relations):Observable<ApiResponse>{
       return this.http.post<ApiResponse>(`${this.baseUrl}`, request);
     }
-    update(request: Teacher):Observable<ApiResponse>{
+    update(request: Relations):Observable<ApiResponse>{
       return this.http.put<ApiResponse>(`${this.baseUrl}`, request);
     }
     delete(id: number):Observable<ApiResponse>{

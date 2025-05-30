@@ -1,0 +1,69 @@
+<h1 class="m-2">Asociar Usuarios</h1>
+<div class="content">
+    <mat-card class="m-2">
+        <mat-card-title>
+            <button mat-raised-button color="primary" (click)="newRelationsStudent()" class="m-2">
+                <mat-icon mat-list-icon>add</mat-icon>
+                Registrar Materia Usuario
+            </button>
+        </mat-card-title>
+        <mat-divider>
+
+        </mat-divider>
+        <mat-card-content class="mt-2">
+            <h4 class="m-2">Listado de usuarios</h4>
+            <div class="mat-elevation-z8" style="overflow-x: auto;">
+                <table mat-table [dataSource]="dataSourceStudents">
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="username">
+                        <th mat-header-cell *matHeaderCellDef> Nombre de usuario </th>
+                        <td mat-cell *matCellDef="let element"> {{element.user.username}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="classSubject">
+                        <th mat-header-cell *matHeaderCellDef> Materia </th>
+                        <td mat-cell *matCellDef="let element"> {{element.classSubject.title}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef> Perfil </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{ element.user.idProfile === 1 ? 'Profesor' : element.user.idProfile === 2 ? 'Estudiante' : '' }}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button color="primary" (click)="updateRelationsStudent(element)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button color="primary" (click)="deleteRelationsStudent(element)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsStudents"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsStudents;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+
+        </mat-card-content>
+
+        <mat-divider>
+
+        </mat-divider>
+
+    </mat-card>
+</div>
